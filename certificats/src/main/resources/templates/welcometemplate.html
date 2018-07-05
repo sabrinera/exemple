@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Gestion des Certificats</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+
+
+</head>
+<style>
+hr.style-four {
+	height: 12px;
+	border: 0;
+	box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+</style>
+<body>
+
+<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">LCL</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Liste des Certificats</a></li>
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>Gestion des Certificats</h1>
+
+
+			  <div class="p-3 mb-2  text-white">
+				<h2>
+					<span
+						th:text="'Nombre des certificats: ' +${nbreCertificat}"></span>
+				</h2>
+			</div>
+			  
+
+			<br></br>
+
+<table class="table table-striped">
+				<tr>
+					<th>DN</th>
+					<th>CN</th>
+					<th>Start date</th>
+					<th>End date</th>
+					<th>Type</th>
+					<th>Commentaire</th>
+					<th>Destinataire</th>
+					<th>Type de certificat</th>
+					
+				</tr>
+				<tr th:each="certificatObj : ${totalCertificat}">
+					<td><span th:text="${certificatObj.dn}"/></td>
+					<td><span th:text="${certificatObj.cn}"/></td>
+					<td><span th:text="${certificatObj.startdate}"/></td>
+					<td><span th:text="${certificatObj.enddate}"/></td>
+					<td><span th:text="${certificatObj.type}"/></td>
+					<td><span th:text="${certificatObj.commentaire}"/></td>
+					<td><span th:text="${certificatObj.destinataire}"/></td>
+					<td><span th:text="${certificatObj.publicPrive}"/></td>
+					
+										
+				</tr>
+			</table>
+	</div>
+	</div>
+	<script type="text/javascript"
+		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
